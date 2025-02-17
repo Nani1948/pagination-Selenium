@@ -407,3 +407,7 @@ public class Dynamicpagination2 {
 	}
 		}}
 
+Dynamic pagination or webtable:
+1)bootstrap table : without table tags and tbody -it will be having div tag
+
+2)
