@@ -1,0 +1,15 @@
+How to extract the value of string on the "Showing 1 to 10 of 16844 (1685 Pages)"
+display the no.of.pages can be reduced or increased
+s.substring(start--0, end index start with 1)
+To create dynamic, what we have to do?
+	 String s="Showing 1 to 10 of 16844 (1685 Pages)";
+  start=s.indexOf("(")+1//it will give the first digit of the value
+end =s.indexOf("Pages")-1//it will give the last digit of the value 
+s.substring(s.indexOf("(")+1,s.indexOf("Pages")-1);
+
+ // Scroll the element into view using JavaScript
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].scrollIntoView(true);", elementToScroll);
+ // Use JavaScriptExecutor to click the element if normal click is blocked
+       JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", clickOnCustomers);         
