@@ -160,3 +160,7 @@ Note:
 Alert come from the javascript alert butiln method in the javascript.
 it will be call this method , it will be opened the alert box.it is not developed by the developer.so that we are unable to locate the element.
 
+popup window will appear based on the cookies information. search for the product. so the inofrmation is stored in the  cookies.
+
+alert window thrown by the javascript.
+Some of the cookies window popup, we are able to inspect the element.that is normal window . we are not able inspect the element that is "alert". 
