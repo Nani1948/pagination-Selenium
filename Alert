@@ -127,3 +127,32 @@ public class HandleAlertUsingExplicitWait {
 	}
 
 }
+
+3)Authentication Popup-Username and Password and click signin or cancel:
+http://the-internet.herokuapp.com/basic_auth
+
+it is alert box. we can't find the element using the locator. so we need by pass the particular box.
+
+ //if you want inject username and password along with url
+//Syntax:http://username:password@the-internet.herokuapp.com/basic_auth
+Example:http://admin:admin@the-internet.herokuapp.com/basic_auth
+
+public class AuthenticatePopupORAlert {
+
+	public static void main(String[] args) {
+		WebDriverManager.chromedriver().setup();
+		  WebDriver driver=new ChromeDriver();
+		  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		  //if you want inject username and password along with url
+		  //Syntax:http://username:password@the-internet.herokuapp.com/basic_auth
+		  driver.get("http://admin:admin@the-internet.herokuapp.com/basic_auth");
+		  driver.manage().window().maximize();
+		  driver.manage().deleteAllCookies();
+		 
+          
+	}
+
+}
+it will directly displayed successful login.
+you want to use explict wait can be used for certain amount of time.
+
