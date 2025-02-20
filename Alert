@@ -155,4 +155,8 @@ public class AuthenticatePopupORAlert {
 }
 it will directly displayed successful login.
 you want to use explict wait can be used for certain amount of time.
+Note:
+
+Alert come from the javascript alert butiln method in the javascript.
+it will be call this method , it will be opened the alert box.it is not developed by the developer.so that we are unable to locate the element.
 
