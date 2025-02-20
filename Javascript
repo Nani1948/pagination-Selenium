@@ -1,0 +1,57 @@
+1. Scroll into View
+Scrolls the page until the element is in view.
+
+java
+Copy
+Edit
+js.executeScript("arguments[0].scrollIntoView(true);", element);
+2. Scroll to the Bottom of the Page
+java
+Copy
+Edit
+js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+3. Scroll by a Specific Pixel
+java
+Copy
+Edit
+js.executeScript("window.scrollBy(0, 500);");  // Scroll down by 500 pixels
+4. Click an Element
+Sometimes, WebDriver's click() method does not work if the element is hidden or overlapped. JavaScriptExecutor can be used in such cases.
+
+java
+Copy
+Edit
+js.executeScript("arguments[0].click();", element);
+5. Send Keys to an Input Field
+java
+Copy
+Edit
+js.executeScript("arguments[0].value='Selenium';", element);
+6. Get Text from an Element
+java
+Copy
+Edit
+String text = (String) js.executeScript("return arguments[0].innerText;", element);
+7. Change an Element's Style
+java
+Copy
+Edit
+js.executeScript("arguments[0].style.border='2px solid red';", element);
+8. Refresh the Page
+java
+Copy
+Edit
+js.executeScript("history.go(0)");
+9. Get Page Title Using JavaScript
+java
+Copy
+Edit
+String title = (String) js.executeScript("return document.title;");
+System.out.println("Page Title: " + title);
+10. Handle Disabled Elements
+If an element is disabled and Selenium cannot interact with it, JavaScript can set its attribute.
+
+java
+Copy
+Edit
+js.executeScript("arguments[0].removeAttribute('disabled');", element);
