@@ -27,6 +27,70 @@ isDisplayed or isEnabled or is isSelected is applicable to check whether the web
 
  Alert alert = driver.switchTo().alert();
 alert.accept();//close alert box using ok button
- alert1.sendKeys()//pass the text into input box
+ alert1.sendKeys()//pass the text into input box inside the alert.
 alert.getText();capture the text value from the alert
 alert.dismiss();close alert box using cancel button
+Ex:
+	WebDriverManager.chromedriver().setup();
+		  WebDriver driver=new ChromeDriver();
+		  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		  driver.get("https://practice-automation.com/");
+		  
+		  driver.manage().window().maximize();
+		  driver.manage().deleteAllCookies();
+		  WebElement popup=driver.findElement(By.xpath("//a[contains(text(), 'Popups')]"));
+		  popup.click();
+		  //1.alertbox-ok button
+		  WebElement alertPopup=driver.findElement(By.xpath("//button[@id='alert']"));
+		  alertPopup.click();
+		  Alert alert = driver.switchTo().alert();
+		  alert.accept();
+		  //2,Confirm box-ok & cancel
+		 WebElement confirmPopup=driver.findElement(By.xpath("//button[contains(@id, 'confirm')]"));
+		 confirmPopup.click();
+		 Thread.sleep(1000);
+		 Alert alert1 = driver.switchTo().alert();
+		 alert1.dismiss();
+		 //3.Prompt Alert-Ok and cancel , imput textbox
+		 WebElement PromptPopup=driver.findElement(By.xpath("//button[@id='prompt']"));
+		 PromptPopup.click();
+		 Alert alert2 = driver.switchTo().alert();
+		 alert2.sendKeys("hello");
+		 alert2.accept();
+		 String res=driver.findElement(By.xpath("//p[@id='promptResult']")).getText();
+		 if(res.contains("hello")) {
+			 System.out.println("successful messages is displayed");
+		 }
+		 else {
+			 System.out.println("successful messages is  not displayed");
+		 }
+Without accept or dismiss method:Using Explict Wait
+or
+How to capture alert box without using switchTo.alert()?
+A)ExplictWait -We have method alertIsPresent() -to check whether alert box is present or not.
+
+HandleAlertUsingExplicitWait
+
+public class HandleAlertUsingExplicitWait {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriverManager.chromedriver().setup();
+		  WebDriver driver=new ChromeDriver();
+		  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		  driver.get("https://practice-automation.com/");
+		  
+		  driver.manage().window().maximize();
+		  driver.manage().deleteAllCookies();
+		  WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+		  
+		  WebElement popup=driver.findElement(By.xpath("//a[contains(text(), 'Popups')]"));
+		  popup.click();
+		  Thread.sleep(1000);
+		  WebElement alertPopup=driver.findElement(By.xpath("//button[@id='alert']"));
+		  alertPopup.click();
+		  Alert myalert=wait.until(ExpectedConditions.alertIsPresent());
+		  myalert.accept();
+		  
+	}
+
+}
