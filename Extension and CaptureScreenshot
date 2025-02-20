@@ -1,0 +1,3 @@
+
+		ChromeOptions options=new ChromeOptions();
+		options.addArguments("--incognito");
