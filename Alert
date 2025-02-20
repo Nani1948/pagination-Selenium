@@ -1,0 +1,32 @@
+/*1.In Selenium or general web automation, there are three main types of alerts (also known as pop-ups or JavaScript alerts) that you may encounter:
+		 * 1. Simple Alert or JavaScript
+                A simple alert contains only an OK button.
+                It is typically used for displaying information or warnings.
+		 *            Alert alert = driver.switchTo().alert();
+                      alert.accept(); // Clicks OK
+
+		 * 2. Confirmation Alert
+                 A confirmation alert contains OK and Cancel buttons.
+                 It is used to confirm an action (e.g., deleting an item).
+		 *                Alert alert = driver.switchTo().alert();
+                          alert.accept(); // Clicks OK
+                           alert.dismiss(); // Clicks Cancel
+                3. Prompt Alert: it contains two or one input box
+		 *           A prompt alert contains a text box, along with OK and Cancel buttons.
+                 It is used when user input is required (e.g., entering a name).
+                  Example: prompt("Please enter your name:");
+                 Handling in Selenium:
+		 *      Alert alert = driver.switchTo().alert();
+               alert.sendKeys("Test User"); // Enters text
+               alert.accept(); // Clicks OK
+Note:
+		 Verify the alert is present or not using WebDriverWait.
+isDisplayed or isEnabled or is isSelected is applicable to check whether the webelement is present or not.
+		 //isDisplayed or isEnabled or is isSelected is applicable for all the webelement but not for the alert.
+
+
+ Alert alert = driver.switchTo().alert();
+alert.accept();//close alert box using ok button
+ alert1.sendKeys()//pass the text into input box
+alert.getText();capture the text value from the alert
+alert.dismiss();close alert box using cancel button
